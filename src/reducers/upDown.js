@@ -1,6 +1,6 @@
 // in action we define what to do
 // in reducers, we tell how to perform that actions
-
+const initialState = 0
 const changeNumber = (state = initialState, action) => {
   switch (action.type) {
     case 'INC':

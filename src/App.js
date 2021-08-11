@@ -1,6 +1,10 @@
 import React from 'react'
-
+import { incNumber, decNumber } from './actions/index'
+import { useSelector, useDispatch } from 'react-redux'
 const App = () => {
+  const myState = useSelector((state) => state.changeNumber)
+  // dispatch is a hook
+  const dispatch = useDispatch()
   return (
     <div>
       <div>
@@ -11,9 +15,15 @@ const App = () => {
         </p>
       </div>
       <div>
-        <button>-</button>
-        <input type='text' value='0' />
-        <button>+</button>
+        <button onClick={() => dispatch(decNumber())}>-</button>
+        <input type='text' value={myState} />
+        <button
+          onClick={() => {
+            dispatch(incNumber())
+          }}
+        >
+          +
+        </button>
       </div>
     </div>
   )
